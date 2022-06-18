@@ -1,0 +1,38 @@
+{
+  "name": "middlewares",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "module": "index.js",
+  "exports": {
+    "import": "./index.js",
+    "require": "./index.js"
+  },
+  "browser": "index.full.js",
+  "scripts": {
+    "build": "tsc",
+    "build:browser": "tsc -p tsconfig.browser.json && mv dist.browser/index.js dist.browser/index.mjs",
+    "build:iife": "rollup dist.browser/index.mjs -f iife --output.name middlewares > dist.browser/index.js",
+    "test": "jest"
+  },
+  "author": "mrthanlon",
+  "license": "AGPL-3.0-or-later",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MrThanlon/restful-proxy"
+  },
+  "homepage": "https://github.com/MrThanlon/restful-proxy",
+  "bugs": {
+    "url": "https://github.com/MrThanlon/restful-proxy/issues"
+  },
+  "keywords": [
+    "middleware"
+  ],
+  "devDependencies": {
+    "@types/jest": "^28.1.2",
+    "jest": "^28.1.1",
+    "rollup": "^2.75.6",
+    "ts-jest": "^28.0.5",
+    "typescript": "^4.7.4"
+  }
+}
