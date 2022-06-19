@@ -1,6 +1,6 @@
 {
-  "name": "middlewares",
-  "version": "0.1.0",
+  "name": "@mrthanlon/middleware",
+  "version": "0.1.1",
   "description": "",
   "main": "index.js",
   "module": "index.js",
@@ -19,11 +19,11 @@
   "license": "AGPL-3.0-or-later",
   "repository": {
     "type": "git",
-    "url": "https://github.com/MrThanlon/restful-proxy"
+    "url": "https://github.com/MrThanlon/middleware"
   },
-  "homepage": "https://github.com/MrThanlon/restful-proxy",
+  "homepage": "https://github.com/MrThanlon/middleware",
   "bugs": {
-    "url": "https://github.com/MrThanlon/restful-proxy/issues"
+    "url": "https://github.com/MrThanlon/middleware/issues"
   },
   "keywords": [
     "middleware"
