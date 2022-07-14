@@ -5,7 +5,7 @@
 ### Node.js & Webpack & Vite & rollup...
 
 ```shell
-npm i @methanlon/middleware
+npm i @mrthanlon/middleware
 ```
 
 ### Browser
