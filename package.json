@@ -1,18 +1,13 @@
 {
   "name": "@mrthanlon/middleware",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "",
-  "main": "index.js",
-  "module": "index.js",
-  "exports": {
-    "import": "./index.js",
-    "require": "./index.js"
-  },
-  "browser": "index.full.js",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "files": ["dist/"],
   "scripts": {
-    "build": "tsc",
-    "build:browser": "tsc -p tsconfig.browser.json && mv dist.browser/index.js dist.browser/index.mjs",
-    "build:iife": "rollup dist.browser/index.mjs -f iife --output.name middlewares > dist.browser/index.js",
+    "build": "tsc && tsc -p tsconfig.cjs.json && mkdir -p dist/iife/ && rollup dist/esm/index.js -f iife --output.name middleware > dist/iife/index.js",
+    "prepublishOnly": "npm run build",
     "test": "jest"
   },
   "author": "mrthanlon",

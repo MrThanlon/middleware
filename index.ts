@@ -1,10 +1,10 @@
 type _Middleware<C, R> = (next: () => Promise<R>, ctx: C) => Promise<R>;
 export interface Middleware<C, R> extends _Middleware<C, R> {
-    use: (middleware: _Middleware<C, R> | Middleware<C, R>) => void;
+    use: (middleware: (next: () => Promise<R>, ctx: C) => Promise<R>) => void;
 }
 
 export function createMiddleware <C, R> (): Middleware<C, R> {
-    const functionList: Array<_Middleware<C, R>|Middleware<C, R>> = [];
+    const functionList: Array<(next: () => Promise<R>, ctx: C) => Promise<R>> = [];
     const middleware: Middleware<C, R> = async (next: () => Promise<R>, ctx: C) => {
         let idx = -1;
         const wrapNext: () => Promise<R> = async () => {
@@ -14,7 +14,7 @@ export function createMiddleware <C, R> (): Middleware<C, R> {
         }
         return await wrapNext();
     }
-    middleware.use = function (middleware: Middleware<C, R> | _Middleware<C, R>) {
+    middleware.use = function (middleware: (next: () => Promise<R>, ctx: C) => Promise<R>) {
         functionList.push(middleware);
     }
     return middleware;
